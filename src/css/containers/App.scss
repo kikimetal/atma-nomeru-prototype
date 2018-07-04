@@ -1,0 +1,117 @@
+.App{
+  --Menu-width: 210px;
+  --kiki-pink: rgb(149, 213, 205);
+  --kiki-orange: rgb(255, 162, 75);
+
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  background: var(--cvl-red);
+
+  &.app-fade-in{
+    opacity: 1;
+  }
+
+  .page-transition-image{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+    user-select: none;
+
+    .over-text{
+      font-size: 6vmin;
+      font-weight: normal;
+      color: #eee;
+      z-index: 1;
+    }
+
+    .bg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      // background: rgba(0,0,0,0.2);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      // background-blend-mode: multiply;
+
+      transform-origin: center;
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+
+    &.on .bg{
+      transition: all 3s linear;
+      transform: scale(1.1);
+    }
+    &.off .bg{
+      background-image: linear-gradient(var(--cvl-grey), var(--cvl-grey)) !important;
+    }
+  }
+
+  // ******************** sm: mobile layout ********************
+
+  .main{
+    position: relative;
+    width: 100%;
+
+    .page{
+      width: 100%;
+      min-height: 100%;
+
+      // color: lightgrey;
+      // background: var(--cvl-red);
+      color: #333;
+      background: #fafafa;
+
+      // page-in
+      transform-origin: 50% 50vh; // fade-in-scale の画面中央設定
+      animation:
+        page-fade-in-scale 0.8s var(--my-ease-out) 1.2s both,
+        page-fade-in-opacity 0.7s ease 1.2s both;
+
+      @keyframes page-fade-in-scale{
+        from{ filter: blur(11px); }
+        to{ filter: blur(0); }
+      }
+      @keyframes page-fade-in-opacity{
+        from{ opacity: 0; }
+        to{ opacity: 1; }
+      }
+
+      // page-out
+      &.leave{
+        animation:
+          page-fade-out-scale 0.5s var(--my-ease-out) 0s both,
+          page-fade-out-opacity 0.5s ease 0s both;
+
+        @keyframes page-fade-out-scale{
+          // from{ transform: scaleX(1); }
+          // to{ transform: scaleX(1.05); }
+        }
+        @keyframes page-fade-out-opacity{
+          from{ opacity: 1; }
+          to{ opacity: 0; }
+        }
+      }
+
+      .page-title{
+        padding: 18vh 0;
+        font-size: 50px;
+      }
+    } // .page
+  } // .main
+} // .App
