@@ -1,6 +1,20 @@
 .Footer{
-  position: relative;
-  color: white;
-  background: #555;
-  padding-bottom: 120px;
+  margin-top: 120px;
+  overflow: hidden;
+
+  .arc {
+    min-height: 300px;
+    border-top-right-radius: 100% 210px;
+    border-top-left-radius: 100% 210px;
+    margin-left: -200px;
+    margin-right: -200px;
+    padding-left: 200px;
+    padding-right: 200px;
+
+    padding-top: 60px;
+    padding-bottom: 120px;
+    background: rgb(217, 211, 226);
+    color: #555;
+  }
+
 }

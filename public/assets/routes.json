@@ -1,33 +1,33 @@
 {
   "page00": {
-    "canonical": "https://www.maylily.co.jp",
+    "canonical": "",
     "uri": "/",
-    "title": "有限会社メイリリィ",
-    "description": "有限会社メイリリィのテストサイトです。",
-    "inbound": "トップに戻る",
-    "heading": "HOME"
+    "title": "TOP",
+    "description": "",
+    "inbound": "アプリトップへ",
+    "heading": "アプリTOP"
   },
   "page01": {
-    "canonical": "https://www.maylily.co.jp/story/",
-    "uri": "/story/",
-    "title": "STORY | 有限会社メイリリィ",
-    "description": "meta description of story.",
-    "inbound": "生い立ちを知る",
-    "heading": "STORY"
+    "canonical": "",
+    "uri": "/result/",
+    "title": "result",
+    "description": "",
+    "inbound": "検索結果を見る",
+    "heading": "検索結果"
   },
   "page02": {
-    "canonical": "https://www.maylily.co.jp/service/",
-    "uri": "/service/",
-    "title": "SERVICE | 有限会社メイリリィ",
-    "description": "meta description of service.",
-    "inbound": "サービスを知る",
-    "heading": "SERVICE"
+    "canonical": "",
+    "uri": "/detail/",
+    "title": "detail",
+    "description": "",
+    "inbound": "お店を詳しく見る",
+    "heading": "店舗詳細"
   },
   "page404": {
-    "canonical": "https://www.maylily.co.jp/404/",
-    "title": "404 | 有限会社メイリリィ",
-    "description": "このページは存在しません。",
+    "canonical": "",
+    "title": "404",
+    "description": "",
     "inbound": "404へようこそ",
-    "heading": "HEADING"
+    "heading": "404 HEADING"
   }
 }

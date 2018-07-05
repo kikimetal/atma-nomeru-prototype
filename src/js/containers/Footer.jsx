@@ -11,14 +11,14 @@ const Footer = props => {
   const { page00, page01, page02 } = props.routes
   return (
     <footer className="Footer">
-      <h1>FOOTER</h1>
-
-      <ul className="link-list">
-        <li className="item"><ConnectedLink to={page00.uri}><Btn><i className="fas fa-bug" />{page00.heading}</Btn></ConnectedLink></li>
-        <li className="item"><ConnectedLink to={page01.uri}><Btn><i className="fab fa-accusoft" />{page01.heading}</Btn></ConnectedLink></li>
-        <li className="item"><ConnectedLink to={page02.uri}><Btn><i className="fas fa-code" />{page02.heading}</Btn></ConnectedLink></li>
-      </ul>
-
+      <div className="arc">
+        <h1>FOOTER</h1>
+        <ul className="link-list">
+          <li className="item"><ConnectedLink to={page00.uri}><Btn><i className="fas fa-bug" />{page00.heading}</Btn></ConnectedLink></li>
+          <li className="item"><ConnectedLink to={page01.uri}><Btn><i className="fab fa-accusoft" />{page01.heading}</Btn></ConnectedLink></li>
+          <li className="item"><ConnectedLink to={page02.uri}><Btn><i className="fas fa-code" />{page02.heading}</Btn></ConnectedLink></li>
+        </ul>
+      </div>
     </footer>
   )
 }

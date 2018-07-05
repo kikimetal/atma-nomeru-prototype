@@ -4,18 +4,23 @@
   align-items: center;
 
   min-width: 160px;
+  margin: 5px;
   padding: 0.8em calc(1em + 2vw);
   background: var(--btn-01);
   color: white;
 
   border: 2px solid var(--btn-01);
   border-radius: 6px;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
 
   font-size: 1.1em;
   text-decoration: none;
   cursor: pointer;
   transition: 0.3s var(--my-ease-out);
+
+  &.large{
+    padding: 4em calc(1em + 2vw);
+  }
 
   @media screen and (min-width: 768px){
     background: rgba(255, 255, 255, 0.8);
