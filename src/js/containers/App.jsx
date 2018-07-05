@@ -4,17 +4,17 @@ import { connect } from "react-redux"
 import urljoin from "url-join"
 
 // containers
-// import MyHelmet from "./MyHelmet"
+import MyHelmet from "./MyHelmet"
 import Page00 from "./Page00"
 import Page01 from "./Page01"
 import Page02 from "./Page02"
+import PageTransitionImage from "./PageTransitionImage"
 // import Menu from "./Menu"
 // import LightsSvg from "./LightsSvg"
 
 // components
 import Btn from "../components/Btn"
 import NotFound from "../components/NotFound"
-// import KikiStar from "../components/KikiStar"
 
 // loader events
 window.addEventListener("load", () => {
@@ -33,9 +33,6 @@ class App extends React.Component{
   componentDidMount(){
     window.addEventListener("resize", this.props.setWindowSize)
     this.props.setWindowSize()
-    // this.props.getNews()
-    // this.props.getStory()
-    // this.props.getService()
   }
 
   componentWillUnmount(){
@@ -43,17 +40,15 @@ class App extends React.Component{
   }
 
   render(){
+    {/* 遷移時の画像のソース */}
+    const pageTransitionImageSrc = urljoin(this.props.assetsPath, "img/bg.jpg")
+
     return (
       <div className="App">
 
         {/* 一度遷移シーンの画像をキャッシュしておくと、表示に遅延が発生しない */}
-        <img style={{display: "none"}} src={urljoin(this.props.assetsPath, "img/bg.jpg")} />
-
-        <div className={`page-transition-image ${this.props.isPageMoving ? "on" : "off"}`}>
-          <div className="bg" style={{
-              backgroundImage: `url(${urljoin(this.props.assetsPath, "img/bg.jpg")})`,
-            }}></div>
-        </div>
+        <img style={{display: "none"}} src={pageTransitionImageSrc} />
+        <PageTransitionImage src={pageTransitionImageSrc} />
 
         <main
           className={`main ${this.props.windowSize || "noSetWindowSize"}`}
@@ -72,7 +67,7 @@ class App extends React.Component{
 
         {/*<LightsSvg />*/}
 
-        {/*<MyHelmet />*/}
+        <MyHelmet />
 
       </div>
     )
@@ -89,9 +84,6 @@ const mapStateToProps = state => ({
 import * as action from "../modules/action"
 const mapStateToDispatch = dispatch => ({
   setWindowSize: () => dispatch(action.setWindowSize()),
-  // getNews: () => dispatch(action.getNews()),
-  // getStory: () => dispatch(action.getStory()),
-  // getService: () => dispatch(action.getService()),
 })
 
 // withRouter かまさないと、ページ遷移うまくいかないのだけど、理由が不明...

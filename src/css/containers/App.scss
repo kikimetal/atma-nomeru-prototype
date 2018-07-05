@@ -12,56 +12,6 @@
     opacity: 1;
   }
 
-  .page-transition-image{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-
-    pointer-events: none;
-    user-select: none;
-
-    .over-text{
-      font-size: 6vmin;
-      font-weight: normal;
-      color: #eee;
-      z-index: 1;
-    }
-
-    .bg{
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      // background: rgba(0,0,0,0.2);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      // background-blend-mode: multiply;
-
-      transform-origin: center;
-      transform: scale(1);
-      transition: all 0.3s ease;
-    }
-
-    &.on .bg{
-      transition: all 3s linear;
-      transform: scale(1.1);
-    }
-    &.off .bg{
-      background-image: linear-gradient(var(--cvl-grey), var(--cvl-grey)) !important;
-    }
-  }
-
   // ******************** sm: mobile layout ********************
 
   .main{
@@ -72,16 +22,15 @@
       width: 100%;
       min-height: 100%;
 
-      // color: lightgrey;
-      // background: var(--cvl-red);
       color: #333;
       background: #fafafa;
 
       // page-in
+      --page-in-delay-time: 0.5s;
       transform-origin: 50% 50vh; // fade-in-scale の画面中央設定
       animation:
-        page-fade-in-scale 0.8s var(--my-ease-out) 1.2s both,
-        page-fade-in-opacity 0.7s ease 1.2s both;
+        page-fade-in-scale 0.8s var(--my-ease-out) var(--page-in-delay-time) both,
+        page-fade-in-opacity 0.7s ease var(--page-in-delay-time) both;
 
       @keyframes page-fade-in-scale{
         from{ filter: blur(11px); }
@@ -93,10 +42,11 @@
       }
 
       // page-out
+      --page-out-delay-time: 0s;
       &.leave{
         animation:
-          page-fade-out-scale 0.5s var(--my-ease-out) 0s both,
-          page-fade-out-opacity 0.5s ease 0s both;
+          page-fade-out-scale 0.5s var(--my-ease-out) var(--page-out-delay-time) both,
+          page-fade-out-opacity 0.5s ease var(--page-out-delay-time) both;
 
         @keyframes page-fade-out-scale{
           // from{ transform: scaleX(1); }
