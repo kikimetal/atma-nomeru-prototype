@@ -7,6 +7,7 @@ import Btn from "../components/Btn"
 // containers
 import Footer from "./Footer"
 import ConnectedLink from "./ConnectedLink"
+import LightsSvg from "./LightsSvg"
 
 const Page00 = props => {
   const { routes } = props
@@ -30,7 +31,9 @@ const Page00 = props => {
       <ConnectedLink to={routes.page00.uri}><Btn>利用した店舗</Btn></ConnectedLink>
       <ConnectedLink to={routes.page00.uri}><Btn>アプリをシェア！</Btn></ConnectedLink>
 
+      <LightsSvg />
       <Footer />
+      
     </div>
   )
 }

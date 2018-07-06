@@ -1,0 +1,28 @@
+.SuccessCard{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  background: rgb(87, 61, 136);
+  box-shadow: 0 0 0 100px rgba(0,0,0,0.6);
+  font-size: 30px;
+  border-radius: 10px;
+
+  z-index: 100;
+  transition: all 0.3s ease;
+
+  &.off{
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.8);
+  }
+}

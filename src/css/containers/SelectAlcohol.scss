@@ -1,0 +1,38 @@
+.SelectAlcohol{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 16vh;
+
+  color: rgb(171, 123, 0);
+  background: rgba(255,255,255,0.4);
+
+
+  z-index: 100;
+  transition: all 0.3s ease;
+
+  &.off{
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.7);
+  }
+
+  .description{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 38vh;
+
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

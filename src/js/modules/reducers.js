@@ -54,31 +54,42 @@ export const mobileMenuContext = (state = false, action) => {
   return state
 }
 
-export const news = (state = { status: "pending", data: null }, action) => {
-  if (action.type === "SET_NEWS") {
+export const mapMode = (state = true, action) => {
+  if (action.type === "SET_MAP_MODE") {
+    return action.context
+  }
+  return state
+}
+
+export const isShowSearchDetail = (state = false, action) => {
+  if (action.type === "SET_SEARCH_DEATIL") {
+    return action.context
+  }
+  return state
+}
+
+export const isShowSelectAlcohol = (state = false, action) => {
+  if (action.type === "SET_SELECT_ALCOHOL") {
+    return action.context
+  }
+  return state
+}
+
+export const orderAlcoholContext = (state = {context: false, alcohol: null}, action) => {
+  if (action.type === "SET_ORDER_ALCOHOL") {
     return ({
-      status: action.status,
-      data: action.data,
+      context: action.context,
+      alcohol: action.alcohol || null,
     })
   }
   return state
 }
 
-export const story = (state = { status: "pending", data: null }, action) => {
-  if (action.type === "SET_STORY") {
+export const successCardContext = (state = {context: false, alcohol: null}, action) => {
+  if (action.type === "SET_SUCCESS_CARD") {
     return ({
-      status: action.status,
-      data: action.data,
-    })
-  }
-  return state
-}
-
-export const service = (state = { status: "pending", data: null }, action) => {
-  if (action.type === "SET_SERVICE") {
-    return ({
-      status: action.status,
-      data: action.data,
+      context: action.context,
+      alcohol: action.alcohol,
     })
   }
   return state

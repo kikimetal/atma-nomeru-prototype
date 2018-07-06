@@ -16,6 +16,7 @@ html{
   --btn-01: rgb(139, 131, 218);
 
   font-size: 14px;
+
   @media screen and (min-width: 1900){ // xl
     font-size: 16px;
   }
@@ -53,7 +54,8 @@ a{
   text-decoration: none;
 }
 
+// font awesome の強制的なオーバーライド
 svg.svg-inline--fa{
-  vertical-align: -0.15em;
-  margin-right: .3em;
+  // vertical-align: -0.15em;
+  // margin-right: .3em;
 }

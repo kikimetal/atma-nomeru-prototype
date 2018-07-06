@@ -10,7 +10,7 @@ import Btn from "../components/Btn"
 const Footer = props => {
   const { page00, page01, page02 } = props.routes
   return (
-    <footer className="Footer">
+    <footer className={`Footer ${props.className}`}>
       <div className="arc">
         <h1>FOOTER</h1>
         <ul className="link-list">
@@ -21,6 +21,10 @@ const Footer = props => {
       </div>
     </footer>
   )
+}
+
+Footer.defaultProps = {
+  className: "",
 }
 
 const mapStateToProps = state => ({

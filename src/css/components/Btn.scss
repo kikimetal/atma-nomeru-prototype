@@ -9,10 +9,11 @@
   background: var(--btn-01);
   color: white;
 
-  border: 2px solid var(--btn-01);
+  // border: 2px solid var(--btn-01);
   border-radius: 6px;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
 
+  user-select: none;
   font-size: 1.1em;
   text-decoration: none;
   cursor: pointer;
@@ -20,6 +21,20 @@
 
   &.large{
     padding: 4em calc(1em + 2vw);
+  }
+  &.circle{
+    padding: 1em;
+    min-width: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  &.circle.large{
+    padding: 2.7em;
+    min-width: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
   }
 
   @media screen and (min-width: 768px){
@@ -39,6 +54,5 @@
 
 .active .Btn{
   pointer-events: none;
-  user-select: none;
   opacity: 0.6;
 }

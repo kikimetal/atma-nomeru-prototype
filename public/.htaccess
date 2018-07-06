@@ -4,7 +4,7 @@ SetEnvIf REDIRECT_HTTPS (.*) HTTPS=$1
   RewriteEngine On
 
   # case:nest-uri change this
-  RewriteBase /v2/
+  RewriteBase /nomeru/
   RewriteRule ^index\.php$ - [L]
 
   RewriteCond %{HTTPS} off
@@ -12,12 +12,12 @@ SetEnvIf REDIRECT_HTTPS (.*) HTTPS=$1
 
   RewriteCond %{HTTP_HOST} !^www\.
   # case:nest-uri change this
-  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/v2/$1 [R=301,L]
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/nomeru/$1 [R=301,L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   # case:nest-uri change this
-  RewriteRule . /v2/index.php [L]
+  RewriteRule . /nomeru/index.php [L]
 </IfModule>
 
 #圧縮

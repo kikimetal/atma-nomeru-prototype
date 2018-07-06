@@ -9,7 +9,7 @@ import Page00 from "./Page00"
 import Page01 from "./Page01"
 import Page02 from "./Page02"
 import PageTransitionImage from "./PageTransitionImage"
-// import Menu from "./Menu"
+import ConnectedLink from "./ConnectedLink"
 // import LightsSvg from "./LightsSvg"
 
 // components
@@ -46,6 +46,12 @@ class App extends React.Component{
     return (
       <div className="App">
 
+        {this.props.routes.uri !== "/" && !this.props.isShowSelectAlcohol &&
+          <ConnectedLink style={{position: "fixed", top: "15px", right: "15px", zIndex: 90}}>
+            <Btn circle>TOP</Btn>
+          </ConnectedLink>
+        }
+
         {/* 一度遷移シーンの画像をキャッシュしておくと、表示に遅延が発生しない */}
         <img style={{display: "none"}} src={pageTransitionImageSrc} />
         <PageTransitionImage src={pageTransitionImageSrc} />
@@ -79,6 +85,7 @@ const mapStateToProps = state => ({
   isPageMoving: state.isPageMoving,
   routes: state.routes,
   assetsPath: state.assetsPath,
+  isShowSelectAlcohol: state.isShowSelectAlcohol,
 })
 
 import * as action from "../modules/action"

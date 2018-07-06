@@ -1,0 +1,48 @@
+.SearchDetail{
+
+  z-index: 99;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+
+  background: pink;
+  border-radius: 6px;
+  box-shadow: 0 0 0 50px rgba(0,0,0,0.4);
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  transition: all 0.3s ease;
+
+  &.off{
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.7);
+  }
+
+  .icons{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+
+    span{
+      width: 20vw;
+      height: 20vw;
+      margin: 5px;
+      border-radius: 4px;
+      box-shadow: 0 0 3px 0 rgba(0,0,0,0.1);
+      background: white;
+    }
+  }
+}

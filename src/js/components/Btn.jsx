@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Btn = ({ children, label, className, large, ...props }) => (
-  <span className={`Btn ${className ? className : ""} ${large && "large"}`} {...props}>
+const Btn = ({ children, label, className, color, large, circle, ...props }) => (
+  <span
+    className={`Btn ${className ? className : ""} ${large && "large"} ${circle && "circle"}`}
+    style={color ? {background: color} : {}}
+    {...props}
+    >
     {children || label}
   </span>
 )

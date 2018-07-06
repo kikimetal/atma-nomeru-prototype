@@ -39,25 +39,6 @@ export const setWindowSize = () => {
   }
 }
 
-export const reverseWebsite = () => ({
-  type: "REVERSE_WEBSITE",
-})
-
-export const setWebsitesDataCondition = condition => ({
-  type: "SET_WEBSITES_DATA_CONDITION",
-  condition,
-})
-
-export const setWebsitesData = data => ({
-  type: "SET_DATA",
-  data,
-})
-
-export const setWpData = data => ({
-  type: "SET_WP_DATA",
-  data,
-})
-
 const ROUTES = window.__ROUTES__
 // 引数の path が 存在するか確認。route情報を返す。
 const checkRoute = path => {
@@ -80,14 +61,7 @@ export const pageMoveToPathname = (nextPath) => {
       type: "PAGE_MOVING",
     })
 
-    // setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 1800)
     setTimeout(() => dispatch({ type: "PAGE_MOVED" }), 2200)
-
-    // const nextRoute = checkRoute(nextPath)
-    // dispatch({
-    //   type: "SET_NEXT_PAGE_SHORT_MESSAGE",
-    //   shortMessage: nextRoute.shortMessage,
-    // })
   }
 }
 
@@ -101,65 +75,71 @@ export const toggleMobileMenu = (context) => {
   }
 }
 
-// JSON を取得した後に 指定のアクションタイプで dispatch する
-const fetchJsonAndDispatch = (fetchUrl, actionTypeString, dispatchFunction) => {
-  fetch(fetchUrl)
-    .then(res => {
-      if(!res.ok) {
-        throw Error(res.statusText)
-      }
-      return res
-    })
-    .then(res => res.json())
-    .then(data => {
-      dispatchFunction({
-        type: actionTypeString,
-        data,
-        status: "fulfilled",
-      })
-    })
-    .catch(error => {
-      console.error("ERROR in redux action at " + actionTypeString, error)
-      dispatchFunction({
-        type: actionTypeString,
-        data: null,
-        status: "rejected",
-      })
-    })
-}
-
-// get news data
-export const getNews = () => {
+export const toggleMapMode = () => {
   return (dispatch, getState) => {
-    const { news, assetsPath } = getState()
-    // すでにセットされてたら終了
-    if (news.status !== "pending") return
-
-    const url = urljoin(assetsPath, "gss-api.php?sheetName=news&date&title&description&img-src&img-alt&link-flg&link-text&link-href")
-    fetchJsonAndDispatch(url, "SET_NEWS", dispatch)
+    dispatch({
+      type: "SET_MAP_MODE",
+      context: !getState().mapMode,
+    })
   }
 }
 
-// get story data
-export const getStory = () => {
+export const toggleSearchDetail = () => {
   return (dispatch, getState) => {
-    const { story, assetsPath } = getState()
-    // すでにセットされてたら終了
-    if (story.status !== "pending") return
-
-    const url = urljoin(assetsPath, "gss-api.php?sheetName=story&element&value")
-    fetchJsonAndDispatch(url, "SET_STORY", dispatch)
+    dispatch({
+      type: "SET_SEARCH_DEATIL",
+      context: !getState().isShowSearchDetail,
+    })
   }
 }
 
-// get service data
-export const getService = () => {
+export const toggleSelectAlcohol = () => {
   return (dispatch, getState) => {
-    const { service, assetsPath } = getState()
-    // すでにセットされてたら終了
-    if (service.status !== "pending") return
-
-    const url = urljoin(assetsPath, "gss-api.php?sheetName=service&element&value")
-    fetchJsonAndDispatch(url, "SET_SERVICE", dispatch)
+    dispatch({
+      type: "SET_SELECT_ALCOHOL",
+      context: !getState().isShowSelectAlcohol,
+    })
   }
 }
+
+
+export const orderAlcohol = alcohol => {
+  return (dispatch) => {
+    console.log("order!", alcohol)
+    dispatch({
+      type: "SET_ORDER_ALCOHOL",
+      context: true,
+      alcohol,
+    })
+  }
+}
+
+export const orderAlcoholCancel = alcohol => {
+  return (dispatch) => {
+    console.log("cancel!", alcohol)
+    dispatch({
+      type: "SET_ORDER_ALCOHOL",
+      context: false,
+      alcohol: null,
+    })
+  }
+}
+
+export const orderSuccess = () => {
+  return (dispatch, getState) => {
+    const state = getState()
+    if (!state.orderAlcoholContext.context) return
+    console.log("SUCCESS!", state.orderAlcoholContext.alcohol)
+    dispatch({
+      type: "SET_SUCCESS_CARD",
+      context: true,
+      alcohol: state.orderAlcoholContext.alcohol,
+    })
+  }
+}
+
+export const hideSuccessCard = () => ({
+  type: "SET_SUCCESS_CARD",
+  context: false,
+  alcohol: null,
+})

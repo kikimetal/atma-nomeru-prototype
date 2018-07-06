@@ -5,17 +5,9 @@ $root_url = $http_protocol . $_SERVER["HTTP_HOST"];
 $root_uri = '/';
 
 // 許可する URL
-if ($_SERVER["HTTP_HOST"] === 'www.carvancl.co.jp' || $_SERVER["HTTP_HOST"] === 'carvancl.co.jp') {
-  $root_url = $http_protocol . 'www.carvancl.co.jp';
-  $root_uri = '/v2/';
-}
 if ($_SERVER["HTTP_HOST"] === 'www.kikimetal.com' || $_SERVER["HTTP_HOST"] === 'kikimetal.com') {
   $root_url = $http_protocol . 'www.kikimetal.com';
-  $root_uri = '/v2/';
-}
-if ($_SERVER["HTTP_HOST"] === 'www.maylily.co.jp' || $_SERVER["HTTP_HOST"] === 'maylily.co.jp') {
-  $root_url = $http_protocol . 'www.maylily.co.jp';
-  $root_uri = '/v2/';
+  $root_uri = '/nomeru/';
 }
 
 // assets ディレクトリの設定
